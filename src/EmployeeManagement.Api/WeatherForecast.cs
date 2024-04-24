@@ -1,4 +1,4 @@
-namespace ManagementEmployee.Api;
+namespace EmployeeManagement.Api;
 
 public class WeatherForecast
 {

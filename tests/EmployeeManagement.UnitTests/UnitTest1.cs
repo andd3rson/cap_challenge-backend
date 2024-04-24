@@ -1,4 +1,4 @@
-namespace ManagementEmployee.UnitTests;
+namespace EmployeeManagement.UnitTests;
 
 public class UnitTest1
 {

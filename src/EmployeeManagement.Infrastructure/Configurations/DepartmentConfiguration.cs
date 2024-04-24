@@ -1,8 +1,8 @@
-using ManagementEmployee.Domain.Entity;
+using EmployeeManagement.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ManagementEmployee.Infrastructure.Configurations;
+namespace EmployeeManagement.Infrastructure.Configurations;
 
 public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
  {

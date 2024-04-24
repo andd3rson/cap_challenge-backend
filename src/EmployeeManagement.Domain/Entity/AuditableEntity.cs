@@ -1,8 +1,8 @@
-namespace ManagementEmployee.Domain.Entity;
+namespace EmployeeManagement.Domain.Entity;
 
 public abstract class AuditableEntity
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

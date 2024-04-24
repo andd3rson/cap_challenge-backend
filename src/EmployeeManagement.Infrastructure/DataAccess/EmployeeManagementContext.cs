@@ -1,11 +1,11 @@
-using ManagementEmployee.Domain.Entity;
+using EmployeeManagement.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagementEmployee.Infrastructure.DataAccess;
+namespace EmployeeManagement.Infrastructure.DataAccess;
 
-public class ManagementEmployeeContext : DbContext
+public class EmployeeManagementContext : DbContext
 {
-    public ManagementEmployeeContext(DbContextOptions<ManagementEmployeeContext> opt)
+    public EmployeeManagementContext(DbContextOptions<EmployeeManagementContext> opt)
         : base(opt)
     { }
 
@@ -34,7 +34,7 @@ public class ManagementEmployeeContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ManagementEmployeeContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeManagementContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }
