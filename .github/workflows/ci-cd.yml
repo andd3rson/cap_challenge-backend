@@ -1,0 +1,28 @@
+name: Continous integration with github actions.
+
+on:
+  push:
+    branches: [ "main", "developer" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Restoring dependencies
+      run: dotnet restore
+
+    - name: Building application
+      run: dotnet build --no-restore
+
+    - name: RUnning tests
+      run: dotnet test -c Release --no-build
