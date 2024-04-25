@@ -2,7 +2,7 @@ using EmployeeManagement.Application.Common.Interfaces;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Department.CreateDepartment;
+namespace EmployeeManagement.Application.Department.Commands.CreateDepartment;
 
 public class CreateDepartmentValidator : AbstractValidator<CreateDepartmentCommand>
 {

@@ -2,7 +2,7 @@ using AutoMapper;
 using EmployeeManagement.Application.Common.Interfaces;
 using MediatR;
 
-namespace EmployeeManagement.Application.Department.CreateDepartment;
+namespace EmployeeManagement.Application.Department.Commands.CreateDepartment;
 
 public record CreateDepartmentCommand(String Name) : IRequest<bool>;
 

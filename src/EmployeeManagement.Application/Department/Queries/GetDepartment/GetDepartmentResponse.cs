@@ -1,5 +1,3 @@
 namespace EmployeeManagement.Application.Department.Queries.GetDepartment;
 
-public class GetDepartmentResponse
-{
-}
+public record GetDepartmentResponse(int Id, string Name, DateTime CreatedAt);
