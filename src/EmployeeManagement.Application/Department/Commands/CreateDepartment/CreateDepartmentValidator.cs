@@ -14,13 +14,14 @@ public class CreateDepartmentValidator : AbstractValidator<CreateDepartmentComma
         RuleFor(x => x.Name)
             .MaximumLength(50)
             .NotEmpty()
-            .MustAsync(BeUniqueName);
+            .MustAsync(BeUniqueName).WithMessage("Department must be unique. It already exists.");
     }
 
     private async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
     {
-        return await _context.Departments
+        return !(await _context.Departments
             .AnyAsync(x => 
-                x.Name == name, cancellationToken);
+                x.Name == name, cancellationToken));
+        
     }
 }
