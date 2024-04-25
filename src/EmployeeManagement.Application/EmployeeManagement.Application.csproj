@@ -6,4 +6,20 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\Behaviors\" />
+      <Folder Include="Department\CreateDepartment\" />
+      <Folder Include="Department\GetDepartment\" />
+      <Folder Include="Employee\" />
+      <Folder Include="Project\" />
+      <Folder Include="Repository\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.1" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    </ItemGroup>
+
 </Project>

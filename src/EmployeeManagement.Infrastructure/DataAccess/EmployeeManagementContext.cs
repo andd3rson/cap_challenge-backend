@@ -1,3 +1,4 @@
+using System.Reflection;
 using EmployeeManagement.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,7 +35,7 @@ public class EmployeeManagementContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeManagementContext).Assembly);
         base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeManagementContext).Assembly);
     }
 }

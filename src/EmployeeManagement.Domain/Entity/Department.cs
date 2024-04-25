@@ -6,6 +6,11 @@ public class Department : AuditableEntity
     {
         Name = name;
     }
+    public Department(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
 
     public Department()
     {

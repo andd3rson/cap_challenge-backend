@@ -1,3 +1,6 @@
+using EmployeeManagement.Api;
+using EmployeeManagement.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+var conn = "Server=localhost,1433;Database=MVP;user=sa;password=password@123;";
+ConfigureServices.AddInfrastructureServices(builder.Services, conn);
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
