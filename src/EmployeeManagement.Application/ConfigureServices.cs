@@ -1,4 +1,5 @@
 using System.Reflection;
+using EmployeeManagement.Application.Common.Behaviors;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,9 +13,10 @@ public static class ConfigureServices
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
+        services.AddTransient(typeof(IPipelineBehavior<,>),
+            typeof(ValidationBehavior<,>));
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
+        
         return services;
     }
     
