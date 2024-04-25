@@ -20,4 +20,6 @@ public class Department : AuditableEntity
     }
 
     public string Name { get; set; }
+    public IEnumerable<Employee> Employees { get; set; }
+    
 }

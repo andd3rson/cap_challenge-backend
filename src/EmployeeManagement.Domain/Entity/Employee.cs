@@ -24,4 +24,9 @@ public class Employee : AuditableEntity
     public string Email { get; set; }
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }
+    
+    public int DepartmentId { get; set; }
+    public IEnumerable<Project> Projects { get; set; }
+    public Department Department { get; set; }
+    
 }
