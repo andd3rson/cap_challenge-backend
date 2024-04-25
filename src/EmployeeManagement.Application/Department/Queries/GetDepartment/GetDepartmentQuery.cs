@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagement.Application.Department.Queries.GetDepartment;
 
-public class GetDepartmentCommand : IRequest<List<GetDepartmentResponse>>
+public class GetDepartmentQuery : IRequest<List<GetDepartmentResponse>>
 {
 }
 
-public class GetDepartmentCommandHandler : IRequestHandler<GetDepartmentCommand, List<GetDepartmentResponse>>
+public class GetDepartmentCommandHandler : IRequestHandler<GetDepartmentQuery, List<GetDepartmentResponse>>
 {
     private readonly IEmployeeManagementContext _context;
     private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ public class GetDepartmentCommandHandler : IRequestHandler<GetDepartmentCommand,
         _mapper = mapper;
     }
 
-    public async Task<List<GetDepartmentResponse>> Handle(GetDepartmentCommand request,
+    public async Task<List<GetDepartmentResponse>> Handle(GetDepartmentQuery request,
         CancellationToken cancellationToken)
     {
         var departments =

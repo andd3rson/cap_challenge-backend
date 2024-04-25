@@ -20,7 +20,7 @@ public class DepartmentController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        return Ok(await _mediator.Send(new GetDepartmentCommand()));
+        return Ok(await _mediator.Send(new GetDepartmentQuery()));
     }
 
     [HttpPost]
