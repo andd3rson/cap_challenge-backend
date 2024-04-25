@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmployeeManagement.Api.Controllers;
 
 [ApiController]
-[Route("api/department")]
+[Route("api/departments")]
 public class DepartmentController : ControllerBase
 {
     private readonly IMediator _mediator;
