@@ -11,16 +11,14 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
         builder.HasKey(pk => pk.Id);
         builder.Property(pk => pk.Id)
             .ValueGeneratedOnAdd();
-        
+
         builder.Property(p => p.Name)
             .HasColumnType("varchar(20)")
             .IsRequired();
         builder.Property(p => p.Details)
             .HasColumnType("varchar(100)")
             .IsRequired();
-        builder.Property(p => p.Location)
-            .HasColumnType("varchar(30)")
-            .IsRequired();
+
         builder.Property(p => p.ManagerName)
             .HasColumnType("varchar(20)")
             .IsRequired();

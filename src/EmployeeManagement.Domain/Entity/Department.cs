@@ -1,3 +1,5 @@
+using EmployeeManagement.Domain.Common;
+
 namespace EmployeeManagement.Domain.Entity;
 
 public class Department : AuditableEntity

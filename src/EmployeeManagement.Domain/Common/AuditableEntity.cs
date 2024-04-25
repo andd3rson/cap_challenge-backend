@@ -1,4 +1,4 @@
-namespace EmployeeManagement.Domain.Entity;
+namespace EmployeeManagement.Domain.Common;
 
 public abstract class AuditableEntity
 {

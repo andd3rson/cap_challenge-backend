@@ -1,5 +1,6 @@
 using System.Reflection;
 using EmployeeManagement.Application.Common.Interfaces;
+using EmployeeManagement.Domain.Common;
 using EmployeeManagement.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 

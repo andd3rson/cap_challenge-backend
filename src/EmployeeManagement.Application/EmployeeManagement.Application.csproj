@@ -9,9 +9,6 @@
     <ItemGroup>
       <Folder Include="Department\Commands\" />
       <Folder Include="Department\Queries\" />
-      <Folder Include="Employee\Commands\" />
-      <Folder Include="Project\" />
-      <Folder Include="Repository\" />
     </ItemGroup>
 
     <ItemGroup>
