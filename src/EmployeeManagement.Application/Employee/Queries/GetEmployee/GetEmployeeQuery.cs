@@ -22,7 +22,12 @@ public class GetEmployeeQueryHandler : IRequestHandler<GetEmployeeQuery, List<Ge
 
     public async Task<List<GetEmployeeResponse>> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
     {
-        var query = await _context.Employees.ToListAsync(cancellationToken);
+        var query =
+            await _context.Employees
+                .Include(j => j.Department)
+                .Include(j => j.Projects)
+                .ToListAsync(cancellationToken);
+        
         var mappedEmployee = _mapper.Map<List<GetEmployeeResponse>>(query);
         return mappedEmployee;
     }

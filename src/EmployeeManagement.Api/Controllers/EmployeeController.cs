@@ -1,4 +1,5 @@
 using EmployeeManagement.Application.Employee.Commands.CreateEmployee;
+using EmployeeManagement.Application.Employee.Commands.RemoveEmployee;
 using EmployeeManagement.Application.Employee.Commands.UpdateEmployee;
 using EmployeeManagement.Application.Employee.Queries.GetEmployee;
 using MediatR;
@@ -32,7 +33,7 @@ public class EmployeeController : ControllerBase
     public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand request)
     {
         var response = await _mediator.Send(request);
-        return Created($"api/employee/{response}", request);
+        return Created($"api/employees/{response}", request);
     }
 
     [HttpPut("{id:int}")]
@@ -44,10 +45,11 @@ public class EmployeeController : ControllerBase
         return await _mediator.Send(request) ? NoContent() : BadRequest();
     }
 
-    // TODO: Still figuring it out if need to put a boolean flag "actived" or not 
+
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
+        await _mediator.Send(new RemoveEmployeeCommand { Id = id });
         return Ok();
     }
 }

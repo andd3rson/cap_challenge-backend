@@ -13,6 +13,7 @@ public class UpdateEmployeeCommand : IRequest<bool>
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }
     public string Email { get; set; }
+    public int? DepartmentId { get; set; }
 }
 
 public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, bool>

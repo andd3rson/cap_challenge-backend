@@ -1,11 +1,11 @@
 using EmployeeManagement.Application.Project.Commands.CreateProject;
+using EmployeeManagement.Application.Project.Commands.RemoveProject;
 using EmployeeManagement.Application.Project.Commands.UpdateProject;
 using EmployeeManagement.Application.Project.Queries.GetProject;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Api.Controllers;
-
 
 [ApiController]
 [Route("api/projects")]
@@ -45,4 +45,10 @@ public class ProjectController : ControllerBase
         return await _mediator.Send(request) ? NoContent() : BadRequest();
     }
 
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _mediator.Send(new RemoveProjectCommand() { Id = id });
+        return Ok();
+    }
 }

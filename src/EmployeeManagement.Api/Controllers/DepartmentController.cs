@@ -1,4 +1,5 @@
 using EmployeeManagement.Application.Department.Commands.CreateDepartment;
+using EmployeeManagement.Application.Department.Commands.RemoveDepartment;
 using EmployeeManagement.Application.Department.Commands.UpdateDepartment;
 using EmployeeManagement.Application.Department.Queries.GetDepartment;
 using MediatR;
@@ -23,6 +24,13 @@ public class DepartmentController : ControllerBase
         return Ok(await _mediator.Send(new GetDepartmentQuery()));
     }
 
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var project = await _mediator.Send(new GetDepartmentByIdQuery() { Id = id });
+        return project is null ? NotFound() : Ok(project);
+    }
+
     [HttpPost]
     [ProducesResponseType(statusCode: StatusCodes.Status201Created)]
     [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
@@ -35,5 +43,12 @@ public class DepartmentController : ControllerBase
     {
         if (request.Id != id) return BadRequest("Try again later");
         return await _mediator.Send(request) ? NoContent() : BadRequest();
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _mediator.Send(new RemoveDepartmentCommand() { Id = id });
+        return Ok();
     }
 }

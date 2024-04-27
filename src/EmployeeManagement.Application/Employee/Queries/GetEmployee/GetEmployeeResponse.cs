@@ -1,3 +1,6 @@
+using EmployeeManagement.Application.Department.Queries.GetDepartment;
+using EmployeeManagement.Application.Project.Queries.GetProject;
+
 namespace EmployeeManagement.Application.Employee.Queries.GetEmployee;
 
 public class GetEmployeeResponse
@@ -9,5 +12,7 @@ public class GetEmployeeResponse
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }
     public DateTime CreatedAt { get; set; }
+    public GetDepartmentResponse Department { get; set; }
+    public IEnumerable<GetProjectResponse> Projects { get; set; }
     
 }
