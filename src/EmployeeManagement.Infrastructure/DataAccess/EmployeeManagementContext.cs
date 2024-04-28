@@ -39,6 +39,10 @@ public class EmployeeManagementContext : DbContext, IEmployeeManagementContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Employee>()
+            .Navigation(x => x.Department)
+            .AutoInclude();
+        
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeManagementContext).Assembly);
     }

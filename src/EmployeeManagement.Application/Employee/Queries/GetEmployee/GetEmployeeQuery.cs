@@ -24,13 +24,17 @@ public class GetEmployeeQueryHandler : IRequestHandler<GetEmployeeQuery, PagedLi
         _mapper = mapper;
     }
 
+    // TODO: Add CPF in Employee
     public async Task<PagedList<GetEmployeeResponse>> Handle(GetEmployeeQuery request,
         CancellationToken cancellationToken)
     {
         var query =
             await _context.Employees
-                .Include(j => j.Department)
-                .Include(j => j.Projects)
+                .Where(x=> 
+                    EF.Functions.Like(x.FirstName, $"%{request.Search}%") ||
+                    // EF.Functions.Like(x.Department.Cpf, $"%{request.Search}%") ||
+                    EF.Functions.Like(x.Department.Name, $"%{request.Search}%")
+                    )
                 .Skip((request.Page - 1) * request.PageSize)
                 .Take(request.PageSize)
                 .ToListAsync(cancellationToken);

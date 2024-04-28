@@ -18,7 +18,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.Property(p => p.LastName)
             .HasColumnType("varchar(20)")
             .IsRequired();
-
+            
         // n:n relationship
         builder.HasMany(x => x.Projects)
             .WithMany(x => x.Employees)
