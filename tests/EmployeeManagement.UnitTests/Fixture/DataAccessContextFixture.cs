@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagement.UnitTests.Fixture;
 
-public class DataAccessContextFixture
+public class DataAccessContextFixture 
 {
     public static EmployeeManagementContext Create()
     {
