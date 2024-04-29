@@ -30,6 +30,7 @@ public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand,
             await _context.Projects
                 .Include(x=>x.Employees)
                 .FirstAsync(x => x.Id == request.Id, cancellationToken);
+        
         projectToBeUpdated = await MappingEmployees(request, projectToBeUpdated, cancellationToken);
         _context.Projects.Update(projectToBeUpdated);
         return await _context.SaveChangesAsync(cancellationToken) > 0;
@@ -40,6 +41,7 @@ public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand,
         Domain.Entity.Project project,
         CancellationToken cancellationToken)
     {
+        project.Name = employees.Name;
         project!.ManagerName = employees.ManagerName;
         project.Details = employees.Details;
         project.Employees = new List<Domain.Entity.Employee?>();

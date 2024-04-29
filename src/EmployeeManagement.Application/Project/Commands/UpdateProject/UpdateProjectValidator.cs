@@ -4,13 +4,18 @@ using FluentValidation;
 
 namespace EmployeeManagement.Application.Project.Commands.UpdateProject;
 
-public class UpdateProjectValidator : AbstractValidator<UpdateDepartmentCommand>
+public class UpdateProjectValidator : AbstractValidator<UpdateProjectCommand>
 {
-    private readonly IEmployeeManagementContext _context;
     public UpdateProjectValidator(IEmployeeManagementContext context)
     {
-        _context = context;
-       
+        RuleFor(x => x.Name)
+            .NotNull()
+            .MaximumLength(50);
+
+        RuleFor(x => x.Details)
+            .NotNull();
+
+        RuleFor(x => x.ManagerName)
+            .NotNull();
     }
-    
 }

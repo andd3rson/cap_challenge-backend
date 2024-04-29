@@ -1,3 +1,4 @@
+using EmployeeManagement.Application.Common.Utils;
 using FluentValidation;
 
 namespace EmployeeManagement.Application.Employee.Commands.CreateEmployee;
@@ -8,24 +9,20 @@ public class CreateEmployeeValidator : AbstractValidator<CreateEmployeeCommand>
     {
         RuleFor(x => x.Fullname)
             .NotNull()
-            .Length(3, 20);
+            .Length(3, 50);
 
         RuleFor(x => x.CPF)
             .NotNull()
-            .Length(3, 50);
-        
-        
-        // RuleFor(x => x.BirthDate)
-        //     .MustAsync(OverEighteen);
-    }
+            .Must(ValidatorMethods.IfIsACpf)
+            .Length(11);
+        RuleFor(x => x.Email)
+            .EmailAddress()
+            .NotNull();
 
-    private async Task<bool> OverEighteen(DateTime birthDate, CancellationToken cancellationToken)
-    {
-        if (birthDate < DateTime.Now.AddDays(-18))
-        {
-            return false;
-        }
+        RuleFor(x => x.Salary)
+            .NotNull();
 
-        return true;
+        RuleFor(x => x.BirthDate)
+            .NotNull();
     }
 }
