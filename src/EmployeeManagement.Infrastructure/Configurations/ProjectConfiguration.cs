@@ -8,6 +8,7 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
 {
     public void Configure(EntityTypeBuilder<Project> builder)
     {
+        builder.ToTable("tb_project");
         builder.HasKey(pk => pk.Id);
         builder.Property(pk => pk.Id)
             .ValueGeneratedOnAdd();

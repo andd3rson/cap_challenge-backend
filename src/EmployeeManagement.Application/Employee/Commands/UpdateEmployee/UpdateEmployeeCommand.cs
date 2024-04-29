@@ -8,8 +8,8 @@ namespace EmployeeManagement.Application.Employee.Commands.UpdateEmployee;
 public class UpdateEmployeeCommand : IRequest<bool>
 {
     public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string Fullname { get; set; }
+    public string CPF { get; set; }
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }
     public string Email { get; set; }

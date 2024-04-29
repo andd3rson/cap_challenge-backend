@@ -8,6 +8,7 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
 {
     public void Configure(EntityTypeBuilder<Department> builder)
     {
+        builder.ToTable("tb_department");
         builder.HasKey(pk => pk.Id);
         builder.Property(pk => pk.Id)
             .ValueGeneratedOnAdd();

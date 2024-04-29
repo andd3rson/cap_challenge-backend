@@ -31,8 +31,8 @@ public class GetEmployeeQueryHandler : IRequestHandler<GetEmployeeQuery, PagedLi
         var query =
             await _context.Employees
                 .Where(x=> 
-                    EF.Functions.Like(x.FirstName, $"%{request.Search}%") ||
-                    // EF.Functions.Like(x.Department.Cpf, $"%{request.Search}%") ||
+                    EF.Functions.Like(x.Fullname, $"%{request.Search}%") ||
+                    EF.Functions.Like(x.CPF, $"%{request.Search}%") ||
                     EF.Functions.Like(x.Department.Name, $"%{request.Search}%")
                     )
                 .Skip((request.Page - 1) * request.PageSize)
