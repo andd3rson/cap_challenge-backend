@@ -16,7 +16,13 @@ Projeto desenvolvido na versão 6.0 do Dotnet. Tem por finalidade mostrar meus c
 
 ### Arquitetura 
 
-Utilizado o padrão CQRS. Mas com algumas modificações na forma de acessar dados. 
+Utilizado o padrão CQRS. Mas com algumas modificações na forma de acessar dados. Optei por não utilizar do repository pattern
+para evitar over engineering e ter mais flexibilidade nas minhas queries.
+
+### Estrutura das tabelas - Banco de dados
+Você pode conferir o script da geração das tabelas na pasta `./docs`
+
+![diagrama de classes](docs/mer-diagram.png)
 
 ### Forma de rodar o projeto.
 
