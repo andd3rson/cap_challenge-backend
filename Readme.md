@@ -1,3 +1,5 @@
+[![Continous integration with github actions.](https://github.com/andd3rson/cap_challenge-backend/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/andd3rson/cap_challenge-backend/actions/workflows/ci-cd.yml)
+
 ### Employee Management - Backend
 
 Projeto desenvolvido na versão 6.0 do Dotnet. Tem por finalidade mostrar meus conhecimentos  na tecnologia.
