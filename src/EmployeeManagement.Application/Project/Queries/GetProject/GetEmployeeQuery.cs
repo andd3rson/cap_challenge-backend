@@ -23,7 +23,9 @@ public class GetEmployeeQueryHandler : IRequestHandler<GetProjectQuery, List<Get
 
     public async Task<List<GetProjectResponse>> Handle(GetProjectQuery request, CancellationToken cancellationToken)
     {
-        var query = await _context.Projects.ToListAsync(cancellationToken);
+        var query = await _context.Projects
+            .Include(x=>x.Employees)
+            .ToListAsync(cancellationToken);
         var mappedProjects = _mapper.Map<List<GetProjectResponse>>(query);
         return mappedProjects;
     }

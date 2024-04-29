@@ -6,8 +6,7 @@ public class ValidationException : Exception
 {
     public ValidationException()
         : base("one or more validation errors occurred.")
-    {
-    }
+    { }
 
     public ValidationException(List<ValidationFailure> failures)
         : this()

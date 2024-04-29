@@ -12,7 +12,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 // TODO: Change it
-var conn = "Server=localhost,1433;Database=MVP;user=sa;password=password@123;";
+var conn = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddInfrastructureServices(conn);
 builder.Services.AddApplicationServices();
 builder.Services.AddSwaggerGen();
