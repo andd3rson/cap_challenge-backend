@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-
-namespace EmployeeManagement.Application.Common;
+namespace EmployeeManagement.Application.Common.Utils;
 
 public class PagedList<T>
 {
