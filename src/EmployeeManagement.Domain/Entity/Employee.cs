@@ -6,21 +6,21 @@ public class Employee : AuditableEntity
 {
     public Employee()
     {
-        FirstName = String.Empty;
-        LastName = String.Empty;
+        Fullname = String.Empty;
+        CPF = String.Empty;
     }
 
-    public Employee(string firstName, string lastName, double salary, DateTime birthDate, string email)
+    public Employee(string fullname, string cpf, double salary, DateTime birthDate, string email)
     {
-        FirstName = firstName;
-        LastName = lastName;
+        Fullname = fullname;
+        CPF = cpf;
         Email = email;
         Salary = salary;
         BirthDate = birthDate;
     }
 
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string Fullname { get; set; }
+    public string CPF { get; set; }
     public string Email { get; set; }
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }

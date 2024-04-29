@@ -6,8 +6,8 @@ namespace EmployeeManagement.Application.Employee.Commands.CreateEmployee;
 
 public class CreateEmployeeCommand : IRequest<int>
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string Fullname { get; set; }
+    public string CPF { get; set; }
     public string Email { get; set; }
     public double Salary { get; set; }
     public DateTime BirthDate { get; set; }

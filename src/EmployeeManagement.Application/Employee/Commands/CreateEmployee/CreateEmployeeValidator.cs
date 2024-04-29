@@ -6,15 +6,15 @@ public class CreateEmployeeValidator : AbstractValidator<CreateEmployeeCommand>
 {
     public CreateEmployeeValidator()
     {
-        RuleFor(x => x.FirstName)
+        RuleFor(x => x.Fullname)
             .NotNull()
             .Length(3, 20);
 
-        RuleFor(x => x.LastName)
+        RuleFor(x => x.CPF)
             .NotNull()
             .Length(3, 50);
-        //
-        //
+        
+        
         // RuleFor(x => x.BirthDate)
         //     .MustAsync(OverEighteen);
     }

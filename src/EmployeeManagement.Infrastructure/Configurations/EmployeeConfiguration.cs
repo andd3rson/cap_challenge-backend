@@ -8,14 +8,15 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 {
     public void Configure(EntityTypeBuilder<Employee> builder)
     {
+        builder.ToTable("tb_employee");
         builder.HasKey(pk => pk.Id);
         builder.Property(pk => pk.Id)
             .ValueGeneratedOnAdd();
 
-        builder.Property(p => p.FirstName)
-            .HasColumnType("varchar(20)")
+        builder.Property(p => p.Fullname)
+            .HasColumnType("varchar(50)")
             .IsRequired();
-        builder.Property(p => p.LastName)
+        builder.Property(p => p.CPF)
             .HasColumnType("varchar(20)")
             .IsRequired();
             
@@ -23,6 +24,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.HasMany(x => x.Projects)
             .WithMany(x => x.Employees)
             .UsingEntity<EmployeeProject>(
+            "tb_employee-project",
                 e => e.HasOne<Project>().WithMany().HasForeignKey(fk => fk.ProjectId),
                 p => p.HasOne<Employee>().WithMany().HasForeignKey(fk => fk.EmployeeId)
             );

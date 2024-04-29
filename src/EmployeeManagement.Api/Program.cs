@@ -11,7 +11,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 
 builder.Services.AddEndpointsApiExplorer();
-// TODO: Change it
+
 var conn = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddInfrastructureServices(conn);
 builder.Services.AddApplicationServices();
