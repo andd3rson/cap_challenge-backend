@@ -1,4 +1,5 @@
 using EmployeeManagement.Application.Common.Interfaces;
+using EmployeeManagement.Domain.Entity;
 using EmployeeManagement.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ public static class ConfigureServices
     {
         services.AddScoped<IEmployeeManagementContext>(provider =>
             provider.GetService<EmployeeManagementContext>()!);
+        
         
         services.AddDbContext<EmployeeManagementContext>(x
             => x.UseSqlServer(connectionString, b => b.MigrationsAssembly("EmployeeManagement.Api")));

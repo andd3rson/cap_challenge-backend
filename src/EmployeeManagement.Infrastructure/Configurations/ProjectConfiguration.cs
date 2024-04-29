@@ -22,5 +22,7 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
         builder.Property(p => p.ManagerName)
             .HasColumnType("varchar(20)")
             .IsRequired();
+       
+
     }
 }

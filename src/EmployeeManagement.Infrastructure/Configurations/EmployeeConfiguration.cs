@@ -18,13 +18,13 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.Property(p => p.LastName)
             .HasColumnType("varchar(20)")
             .IsRequired();
-
+            
         // n:n relationship
         builder.HasMany(x => x.Projects)
             .WithMany(x => x.Employees)
             .UsingEntity<EmployeeProject>(
-                e => e.HasOne<Project>().WithMany().HasForeignKey(fk => fk.EmployeeId),
-                p => p.HasOne<Employee>().WithMany().HasForeignKey(fk => fk.ProjectId)
+                e => e.HasOne<Project>().WithMany().HasForeignKey(fk => fk.ProjectId),
+                p => p.HasOne<Employee>().WithMany().HasForeignKey(fk => fk.EmployeeId)
             );
         // 1:n relationship
         builder.HasOne(x => x.Department)

@@ -19,8 +19,8 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get()
-        => Ok(await _mediator.Send(new GetEmployeeQuery()));
+    public async Task<IActionResult> Get(int page, int pageSize, string? search)
+        => Ok(await _mediator.Send(new GetEmployeeQuery() { Page = page, PageSize = pageSize, Search = search }));
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> Get(int id)
@@ -41,15 +41,11 @@ public class EmployeeController : ControllerBase
     {
         if (request.Id != id)
             return BadRequest();
-
         return await _mediator.Send(request) ? NoContent() : BadRequest();
     }
 
 
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
-    {
-        await _mediator.Send(new RemoveEmployeeCommand { Id = id });
-        return Ok();
-    }
+        => Ok(await _mediator.Send(new RemoveEmployeeCommand { Id = id }));
 }

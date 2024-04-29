@@ -13,11 +13,12 @@ public class Project : AuditableEntity
         Name = name;
         Details = details;
         ManagerName = managerName;
+        Employees = new HashSet<Employee?>();
     }
 
     public string Name { get; set; }
     public string Details { get; set; }
     public string ManagerName { get; set; }
     
-    public IEnumerable<Employee> Employees { get; set; }
+    public ICollection<Employee?> Employees { get; set; }
 }

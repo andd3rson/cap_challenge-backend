@@ -5,12 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);;
 
 
 builder.Services.AddEndpointsApiExplorer();
 // TODO: Change it
-var conn = "Server=localhost,1433;Database=MVP;user=sa;password=password@123;";
+var conn = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddInfrastructureServices(conn);
 builder.Services.AddApplicationServices();
 builder.Services.AddSwaggerGen();
